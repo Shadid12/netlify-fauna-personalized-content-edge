@@ -14,6 +14,18 @@ export default function Marketing({message, promotion}) {
     <div className={styles.container}>
       <h1>Marketing Page</h1>
       <p id="message">{message}</p>
+      <div>
+        {promotion ? (
+          <div className={styles.wrap}>
+            { promotion.map((promo) => (
+              <div key={promo.ref.id} className={styles.item}>
+                <h2>{promo.data.title}</h2>
+                <img className={styles.img} src={promo.data.img} />
+              </div>
+            ))}
+          </div>
+        ) : <p>No promo for me</p>}
+      </div>
       <div className={styles.btnWrap}>
         <Link href="/"><a className={styles.link}>Home</a></Link>
       </div>
